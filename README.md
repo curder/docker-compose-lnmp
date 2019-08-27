@@ -38,7 +38,7 @@ docker-compose up -d
 - 修改软件版本
 
 ```
-docker-compose build mysql
+docker-compose build --no-cache mysql
 docker-compose restart mysql
 ```
 
