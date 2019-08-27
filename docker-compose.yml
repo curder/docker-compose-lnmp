@@ -108,7 +108,10 @@ services:
 
   ### Redis ################################################
   redis:
-    build: ./redis
+    build:
+      context: ./redis
+      args:
+        - REDIS_VERSION=${REDIS_VERSION}
     volumes:
       - ${DATA_PATH_HOST}/redis:/data
     ports:
