@@ -33,3 +33,21 @@ docker-compose up -d
 
 
 
+## 常用命令
+
+- 修改软件版本
+
+```
+docker-compose build mysql
+docker-compose restart mysql
+```
+
+> 例如上面通过环境配置文件`.env` 修改了数据库的版本，通过 `docker-compose build mysql`重新构建mysql，并使用 `restart` 重启 mysql 进程。
+> [参考这个issue](https://github.com/laradock/laradock/issues/1855#issuecomment-433393678)
+
+
+- 进入容器内部
+
+```
+docker-compose exec mysql bash
+```
