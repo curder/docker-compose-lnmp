@@ -25,12 +25,31 @@ cp .env.example .env
 
 默认mysql，redis等容器运行时的数据存放在项目的 `data` 目录下。
 
+
+### 添加一个站点
+
+在项目的同级目录「默认配置」下新建一个 [laravel/laravel](https://github.com/laravel/laravel) 项目，并命名为 `laravel`。
+
+```
+docker-compose-lnmp
+laravel
+```
+
+创建一个 nginx 配置文件，拷贝 当前项目 `docker-compose-lnmp/nginx/sites/laravel.conf.example` 的文件，删除后缀 `.example`，配置文件最终保持为 `docker-compose-lnmp/nginx/sites/laravel.conf`
+
+#### 重启 nginx 进程
+
+```
+docker-compose restart nginx
+```
+
+
+
 ## 启动
 
 ```
 docker-compose up -d
 ```
-
 
 
 ## 常用命令
