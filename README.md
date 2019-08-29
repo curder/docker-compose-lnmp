@@ -30,10 +30,13 @@ cp .env.example .env
 
 在项目的同级目录「默认配置」下新建一个 [laravel/laravel](https://github.com/laravel/laravel) 项目，并命名为 `laravel`。
 
+他们的目录结构为：
+
 ```
 docker-compose-lnmp
 laravel
 ```
+
 
 创建一个 nginx 配置文件，拷贝 当前项目 `docker-compose-lnmp/nginx/sites/laravel.conf.example` 的文件，删除后缀 `.example`，配置文件最终保持为 `docker-compose-lnmp/nginx/sites/laravel.conf`
 
@@ -43,7 +46,12 @@ laravel
 docker-compose restart nginx
 ```
 
+#### 修改laravel项目权限
 
+```
+docker-compose exec php-fpm chgrp -R www-data laravel/storage laravel/bootstrap/cache
+docker-compose exec php-fpm chmod -R ug+rwx laravel/storage laravel/bootstrap/cache
+```
 
 ## 启动
 
